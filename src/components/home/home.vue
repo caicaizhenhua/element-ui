@@ -24,19 +24,15 @@
         <el-aside class="aside">
           <el-menu
           class="el-menu-vertical-demo"
-          default-active="2-1"
+          default-active="users"
           :unique-opened="isUnique"
-          :collapse-transition = "isCollapse"
-
-          @open="handleOpen"
-          @close="handleClose"
-          @select="handleSelect">
+          :router='isRouter'>
             <el-submenu index="1">
                 <template slot="title">
                   <i class="el-icon-location"></i>
                   <span>用户管理</span>
                 </template>
-                <el-menu-item index="1-1">
+                <el-menu-item index="users">
                   <i class="el-icon-phone"></i>
                   <span>用户列表</span>
                 </el-menu-item>
@@ -80,7 +76,7 @@
                   <i class="el-icon-location"></i>
                   <span>数据统计</span>
                 </template>
-                <el-menu-item index="1-1">
+                <el-menu-item index="5-1">
                   <i class="el-icon-phone"></i>
                   <span>商品列表</span>
                 </el-menu-item>
@@ -88,7 +84,9 @@
           </el-menu>
         </el-aside>
         <!--主体内容右侧-->
-        <el-main class="main">Main</el-main>
+        <el-main class="main">
+          <router-view />
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -100,8 +98,11 @@ export default {
   data () {
     return {
       isUnique: true,
-      isCollapse: false
+      isRouter: true
     }
+  },
+  created () {
+    // this.handleOpen()
   },
   methods: {
     handleOpen (key, keyPath) {

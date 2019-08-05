@@ -35,7 +35,7 @@ export default {
         this.$message.success(msg)
         this.$router.push({name: 'home'}) // 跳转到登录页面
         // console.log(data)
-        localStorage.setItem('tocken', data.token) // 保存tocken值
+        localStorage.setItem('token', data.token) // 保存tocken值
       } else {
         this.$message.error(msg)
       }
